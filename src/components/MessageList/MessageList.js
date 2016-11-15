@@ -7,6 +7,7 @@ import styles from './MessageList.scss'
 import Message from '../Message'
 
 function renderMessages(messages = []) {
+  console.log(1, messages)
   return messages.map((elem, idx) => {
     return (
       <Message
@@ -20,13 +21,6 @@ const MessageList = (props) => {
   return (
     <div className={styles.wrapper}>
       {renderMessages(props.messages)}
-      <div className={styles.postMessageBtn}>
-        <button
-          type="button"
-          onClick={props.handleClickPostMessage}>
-          <i className="fa fa-plus" aria-hidden="true"/>
-        </button>
-      </div>
     </div>
   )
 }

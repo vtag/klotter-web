@@ -19,6 +19,14 @@ class PostMessage$ extends React.Component {
     console.log('post')
   }
 
+  componentDidMount() {
+    // this.props.dispatch(MessageActions.postMessage({
+    //   message: 'power',
+    //   x: 37.585156,
+    //   y: 127.0287975
+    // }))
+  }
+
   render() {
     console.log(2, this.props.state)
     return (

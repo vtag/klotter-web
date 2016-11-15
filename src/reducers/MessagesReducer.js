@@ -2,7 +2,7 @@ import AT from '../actions/ActionTypes'
 import { browserHistory } from 'react-router'
 
 const initialState = {
-
+  messages: new Array()
 }
 
 export default function(state = initialState, action) {
@@ -11,7 +11,10 @@ export default function(state = initialState, action) {
   switch (action.type) {
 
     case AT.GET_MESSAGES:
-      return state
+      return {
+        ...state,
+        messages: action.payload
+      }
 
     case AT.POST_MESSAGES:
       return state

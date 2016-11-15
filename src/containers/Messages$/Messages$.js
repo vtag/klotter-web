@@ -7,15 +7,7 @@ import { withRouter } from 'react-router'
 import styles from './Messages$.scss'
 import { MessageActions } from '../../actions'
 import MessageList from '../../components/MessageList'
-
-
-let dummy = [
-  {message: 'power'},
-  {message: 'foo'},
-  {message: 'bar'},
-  {message: 'simon is tall'},
-  {message: 'where is korea?'},
-]
+import ContentPanel from '../../components/ContentPanel'
 
 class Messages$ extends React.Component {
 
@@ -35,16 +27,17 @@ class Messages$ extends React.Component {
   }
   
   handleClickPostMessage(data) {
-    console.log(22)
+    console.log('move to post message')
     this.props.router.push('postMessage')
   }
 
   render() {
     console.log(2, this.props.state)
     return (
-      <MessageList 
-        messages={dummy}
-        handleClickPostMessage={this.handleClickPostMessage}/>
+      <ContentPanel handleClickPostMessage={this.handleClickPostMessage}>
+        <MessageList
+          messages={this.props.messages}/>
+      </ContentPanel>
     )
   }
 
@@ -54,6 +47,7 @@ class Messages$ extends React.Component {
 const mapStateToProps = (state/*, props*/) => {
   return {
     geolocation: state.GeoReducer.geolocation,
+    messages: state.MessagesReducer.messages,
     state: state
   }
 }
