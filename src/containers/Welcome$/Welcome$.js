@@ -21,8 +21,8 @@ class Welcome$ extends React.Component {
   componentWillMount() {
     this.props.dispatch(GeolocationActions.getGeolocation())
       .then((res) => {
-        // window.sessionStorage.setItem('vtag-geo-x', res.x)
-        // window.sessionStorage.setItem('vtag-geo-y', res.y)
+        window.sessionStorage.setItem('vtag-geo-x', res.x)
+        window.sessionStorage.setItem('vtag-geo-y', res.y)
         this.setState({geoIsConfirmed: true})
       })
   }

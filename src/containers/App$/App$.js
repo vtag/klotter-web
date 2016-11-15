@@ -13,6 +13,10 @@ class App$ extends React.Component {
     super()
   }
   
+  componentDidMount() {
+    this.props.dispatch(GeolocationActions.getGeolocation())
+  }
+  
   render() {
     return (
       <div className={styles.wrapper}>

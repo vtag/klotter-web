@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 /**/
 import styles from './MainFrame.scss'
 import Masthead from '../../containers/Masthead$'
+import GlobalFooter from '../../containers/GlobalFooter$'
 
 const MainFrame = (props) => {
   return (
@@ -12,6 +13,7 @@ const MainFrame = (props) => {
       <div className={styles.body}>
         {props.children}
       </div>
+      <GlobalFooter/>
     </div>
   )
 }

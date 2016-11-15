@@ -2,7 +2,7 @@ import createAction from './createAction'
 import AT from './ActionTypes'
 
 export default {
-  getGeolocation: (arg) => (dispatch, getState) => {
+  getGeolocation: () => (dispatch, getState) => {
 
     return new Promise(function(resolve, reject) {
 

@@ -1,0 +1,6 @@
+{
+  "name": "PostMessage$",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./PostMessage$.js"
+}

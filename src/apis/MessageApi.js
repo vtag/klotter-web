@@ -5,7 +5,7 @@ export default {
     return API.get(`get?x=${x}&y=${y}`)
   },
   
-  requeestPostMessage: (data) => {
+  requestPostMessage: (data) => {
     return API.post(`post`, data)
   }
 }
