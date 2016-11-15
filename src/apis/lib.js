@@ -1,4 +1,4 @@
-const ROOT = 'http://polls.apiblueprint.org/'
+const ROOT = 'http://52.78.232.101/'
 
 function checkStatus(response) {
   return response.text()

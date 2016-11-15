@@ -18,5 +18,6 @@ export default {
     return MessageApi.requestPostMessage(data)
       .then(res => dispatch(createAction(AT.POST_MESSAGE, res)))
   }
+
 }
 

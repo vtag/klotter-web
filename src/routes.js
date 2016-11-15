@@ -8,7 +8,7 @@ import App$ from './containers/App$'
 import Welcome$ from './containers/Welcome$'
 import Messages$ from './containers/Messages$'
 import MainFrame from './components/MainFrame'
-
+import { RouteUtils } from './utils'
 
 
 /************************************************************
@@ -29,7 +29,7 @@ export default (
       <Route path="/" component={App$}>
         <IndexRedirect to="welcome"/>
         <Route path="welcome" component={Welcome$}/>
-        <Route component={MainFrame}>
+        <Route component={MainFrame} onEnter={RouteUtils.geoCheck}>
           <Route path="messages" component={Messages$}/>
         </Route>
       </Route>
