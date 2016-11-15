@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 /**/
 import styles from './MainFrame.scss'
-import MainPanel from '../MainPanel'
 import Masthead from '../../containers/Masthead$'
 
 const MainFrame = (props) => {
