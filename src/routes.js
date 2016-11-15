@@ -14,7 +14,7 @@ import MainFrame from './components/MainFrame'
 /************************************************************
  * Redux
  ************************************************************/
-import { reduxUtils } from './utils'
+import { ReduxUtils } from './utils'
 import { Provider } from 'react-redux'
 
 
@@ -24,7 +24,7 @@ import { Provider } from 'react-redux'
  ************************************************************/
 
 export default (
-  <Provider store={reduxUtils.store()}>
+  <Provider store={ReduxUtils.store()}>
     <Router history={browserHistory}>
       <Route path="/" component={App$}>
         <IndexRedirect to="welcome"/>

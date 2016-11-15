@@ -1,7 +1,7 @@
-import domUtils from './domUtils'
-import reduxUtils from './reduxUtils'
+import DomUtils from './DomUtils'
+import ReduxUtils from './ReduxUtils'
 
 module.exports = {
-  domUtils,
-  reduxUtils
+  DomUtils,
+  ReduxUtils
 }
