@@ -1,0 +1,18 @@
+@import '../../styles/color.scss';
+
+.wrapper {
+
+  .leftar {
+
+  }
+
+  .mainPanel {
+    width: calc(100% - 220px);
+  }
+
+  .body {
+    display: flex;
+    flex-direction: row;
+  }
+
+}
