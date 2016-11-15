@@ -6,6 +6,13 @@ import { withRouter } from 'react-router'
 /* Internal Dependencies */
 import styles from './Messages$.scss'
 import { MessageActions } from '../../actions'
+import MessageList from '../../components/MessageList'
+
+
+let dummy = [
+  {message: 'power'},
+  {message: 'foo'}
+]
 
 class Messages$ extends React.Component {
 
@@ -24,11 +31,7 @@ class Messages$ extends React.Component {
   render() {
     console.log(2, this.props.state)
     return (
-      <div className={styles.wrapper}>
-        <div className={styles.main}>
-          
-        </div>
-      </div>
+      <MessageList messages={dummy}/>
     )
   }
 
