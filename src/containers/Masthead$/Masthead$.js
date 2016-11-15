@@ -8,14 +8,14 @@ const Masthead$ = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.geoLocation}>
-            <span>
-              Anam Station
-            </span>
+        <span>
+          Anam Station
+        </span>
       </div>
       <div className={styles.logo}>
-            <span>
-              Vtag
-            </span>
+        <span>
+          Vtag
+        </span>
       </div>
     </div>
   )
