@@ -20,6 +20,13 @@ const MessageList = (props) => {
   return (
     <div className={styles.wrapper}>
       {renderMessages(props.messages)}
+      <div className={styles.postMessageBtn}>
+        <button
+          type="button"
+          onClick={props.handleClickPostMessage}>
+          <i className="fa fa-plus" aria-hidden="true"/>
+        </button>
+      </div>
     </div>
   )
 }

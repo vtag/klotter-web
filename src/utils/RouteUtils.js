@@ -1,5 +1,6 @@
 export default {
-  geoCheck: (nextState, replace) => {
+  geoCheck: (replace, store) => {
+    console.log('geo', store)
     let x = window.sessionStorage.getItem('vtag-geo-x')
     let y = window.sessionStorage.getItem('vtag-geo-y')
 

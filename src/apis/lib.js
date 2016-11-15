@@ -1,4 +1,4 @@
-const ROOT = 'http://52.78.232.101/'
+const ROOT = 'http://52.78.227.198/'
 
 function checkStatus(response) {
   return response.text()
@@ -13,14 +13,9 @@ function parseJSON(data) {
 }
 
 export function get(url) {
-  let headers = new Headers({
-    'Authorization': `Bearer ${window.sessionStorage.getItem('smp-token')}`
-  })
 
   url = ROOT + url
-  return fetch(url, {
-    headers: headers
-  })
+  return fetch(url)
     .then(checkStatus)
     .then(parseJSON)
 }
@@ -38,7 +33,3 @@ export function post(url, data) {
     .then(checkStatus)
     .then(parseJSON)
 }
-
-
-// credentials: 'include'
-// 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5zd21hZXN0cm8ubmV0IiwiZXhwIjoxNDgxNDU4NzMzLCJ1c2VyX2lkIjo0LCJpYXQiOjE0NzYyNzQ3MzN9.95sFi_ICx57Jh2tHeycmxusZg_-luWkQf5AF2Y8p9qY'
