@@ -6,7 +6,8 @@ import { withRouter } from 'react-router'
 /* Internal Dependencies */
 import styles from './PostMessage$.scss'
 import { MessageActions } from '../../actions'
-import MessageList from '../../components/MessageList'
+import PostMessageForm from '../../components/PostMessageForm'
+import ContentPanel from '../../components/ContentPanel'
 
 
 class PostMessage$ extends React.Component {
@@ -15,24 +16,15 @@ class PostMessage$ extends React.Component {
     super()
   }
   
-  componentWillMount() {
-    console.log('post')
-  }
-
   componentDidMount() {
-    // this.props.dispatch(MessageActions.postMessage({
-    //   message: 'power',
-    //   x: 37.585156,
-    //   y: 127.0287975
-    // }))
   }
 
   render() {
     console.log(2, this.props.state)
     return (
-      <div>
-        123
-      </div>
+      <ContentPanel>
+        <PostMessageForm/>
+      </ContentPanel>
     )
   }
 

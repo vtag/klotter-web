@@ -7,7 +7,6 @@ import styles from './MessageList.scss'
 import Message from '../Message'
 
 function renderMessages(messages = []) {
-  console.log(1, messages)
   return messages.map((elem, idx) => {
     return (
       <Message

@@ -1,7 +1,7 @@
 /* External Dependencies */
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router' 
+import { withRouter } from 'react-router'
 
 /* Internal Dependencies */
 import styles from './Messages$.scss'
@@ -27,14 +27,14 @@ class Messages$ extends React.Component {
   }
   
   handleClickPostMessage(data) {
-    console.log('move to post message')
-    this.props.router.push('postMessage')
+    this.props.router.push('/postMessage')
   }
 
   render() {
-    console.log(2, this.props.state)
     return (
-      <ContentPanel handleClickPostMessage={this.handleClickPostMessage}>
+      <ContentPanel
+        handleClickPostMessage={this.handleClickPostMessage}
+        showPostMessageBtn={true}>
         <MessageList
           messages={this.props.messages}/>
       </ContentPanel>
@@ -44,10 +44,11 @@ class Messages$ extends React.Component {
 }
 
 
-const mapStateToProps = (state/*, props*/) => {
+const mapStateToProps = (state, props) => {
   return {
     geolocation: state.GeoReducer.geolocation,
     messages: state.MessagesReducer.messages,
+    temp: props.location,
     state: state
   }
 }

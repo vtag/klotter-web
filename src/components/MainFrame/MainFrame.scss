@@ -2,17 +2,6 @@
 
 .wrapper {
 
-  .leftar {
-
-  }
-
-  .mainPanel {
-    width: calc(100% - 220px);
-  }
-
-  .body {
-    display: flex;
-    flex-direction: row;
-  }
-
+  position: relative;
+  height: 100%;
 }

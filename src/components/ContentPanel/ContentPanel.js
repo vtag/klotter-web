@@ -5,10 +5,9 @@ import { connect } from 'react-redux'
 import styles from './ContentPanel.scss'
 import Masthead from '../../containers/Masthead$'
 
-const ContentPanel = (props) => {
-  return (
-    <div className={styles.wrapper}>
-      {props.children}
+function renderPostMessageBtn(props) {
+  if (props.showPostMessageBtn) {
+    return (
       <div className={styles.postMessageBtn}>
         <button
           type="button"
@@ -16,6 +15,16 @@ const ContentPanel = (props) => {
           <i className="fa fa-plus" aria-hidden="true"/>
         </button>
       </div>
+    )
+  }
+
+}
+
+const ContentPanel = (props) => {
+  return (
+    <div className={styles.wrapper}>
+      {props.children}
+      {renderPostMessageBtn(props)}
     </div>
   )
 }
