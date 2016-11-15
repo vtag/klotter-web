@@ -63,7 +63,7 @@ class Welcome$ extends React.Component {
 
 const mapStateToProps = (state/*, props*/) => {
   return {
-    reduxState: state
+    state: state
   }
 }
 

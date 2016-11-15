@@ -1,7 +1,7 @@
 import AT from '../actions/ActionTypes'
 
 const initialState = {
-
+  geolocation: {}
 }
 
 export default function(state = initialState, action) {

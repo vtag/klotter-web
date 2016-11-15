@@ -4,13 +4,14 @@ import AT from './ActionTypes'
 export default {
   getGeolocation: (arg) => (dispatch, getState) => {
 
-    var promise = new Promise(function(resolve, reject) {
+    return new Promise(function(resolve, reject) {
 
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const x  = position.coords.latitude;
           const y = position.coords.longitude;
-          console.log('Geo', x, y)
+          console.log('Geolocation', x, y)
+          dispatch(createAction(AT.GET_GEOLOCATION, {x, y}))
 
           resolve({x, y})
 
@@ -23,7 +24,6 @@ export default {
       )
     });
 
-    return promise
 
   }
 }
