@@ -11,7 +11,10 @@ import MessageList from '../../components/MessageList'
 
 let dummy = [
   {message: 'power'},
-  {message: 'foo'}
+  {message: 'foo'},
+  {message: 'bar'},
+  {message: 'simon is tall'},
+  {message: 'where is korea?'},
 ]
 
 class Messages$ extends React.Component {
@@ -21,11 +24,10 @@ class Messages$ extends React.Component {
   }
   
   componentWillMount() {
-    // this.props.dispatch(MessageActions.getMessages({
-    //   x: this.props.geolocation.x,
-    //   y: this.props.geolocation.y
-    // }))
-
+    this.props.dispatch(MessageActions.getMessages({
+      x: this.props.geolocation.x,
+      y: this.props.geolocation.y
+    }))
   }
 
   render() {
