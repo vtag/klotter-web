@@ -9,16 +9,22 @@ import Welcome$ from './containers/Welcome$'
 import Messages$ from './containers/Messages$'
 import MainFrame from './components/MainFrame'
 
+
+
 /************************************************************
  * Redux
  ************************************************************/
-import store from './redux'
+import { reduxUtils } from './utils'
 import { Provider } from 'react-redux'
 
-// const appHistory = useRouterHistory(createHashHistory)()
+
+
+/************************************************************
+ * Router renders here
+ ************************************************************/
 
 export default (
-  <Provider store={store()}>
+  <Provider store={reduxUtils.store()}>
     <Router history={browserHistory}>
       <Route path="/" component={App$}>
         <IndexRedirect to="welcome"/>
