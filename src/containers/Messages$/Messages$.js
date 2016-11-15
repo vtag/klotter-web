@@ -11,7 +11,10 @@ import MessageList from '../../components/MessageList'
 
 let dummy = [
   {message: 'power'},
-  {message: 'foo'}
+  {message: 'foo'},
+  {message: 'bar'},
+  {message: 'simon is tall'},
+  {message: 'where is korea?'},
 ]
 
 class Messages$ extends React.Component {
