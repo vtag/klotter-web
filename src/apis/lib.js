@@ -1,4 +1,4 @@
-const ROOT = 'http://52.78.227.198/'
+const ROOT = 'https://klottr.ekdahl.io/'
 
 function checkStatus(response) {
   return response.text()

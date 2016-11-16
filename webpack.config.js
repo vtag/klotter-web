@@ -7,6 +7,7 @@ var APP_DIR = path.resolve(__dirname, 'src');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
   entry: [
@@ -24,6 +25,10 @@ var config = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
       'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      cache: true
     })
   ],
   resolve: {
