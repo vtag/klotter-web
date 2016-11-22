@@ -6,12 +6,10 @@ import { connect } from 'react-redux'
 import styles from './MessageList.scss'
 import Message from '../Message'
 
-function renderMessages(messages = []) {
+function renderMessages(messages = [], x, y) {
   return messages.map((elem, idx) => {
     return (
-      <Message
-        key={idx}
-        message={elem}/>
+      <Message key={elem.id} message={elem} x={x} y={y} />
     )
   })
 }
@@ -19,7 +17,7 @@ function renderMessages(messages = []) {
 const MessageList = (props) => {
   return (
     <div className={styles.wrapper}>
-      {renderMessages(props.messages)}
+      {renderMessages(props.messages, props.x, props.y)}
     </div>
   )
 }

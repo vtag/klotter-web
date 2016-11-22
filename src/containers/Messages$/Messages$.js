@@ -11,21 +11,25 @@ import ContentPanel from '../../components/ContentPanel'
 
 class Messages$ extends React.Component {
 
-  constructor() {
+  constructor(props) {
     super()
+    this.state = {
+      x: props.geolocation.x || parseFloat(window.sessionStorage.getItem('vtag-geo-x')),
+      y: props.geolocation.y || parseFloat(window.sessionStorage.getItem('vtag-geo-y')),
+    }
     this.handleClickPostMessage = this.handleClickPostMessage.bind(this)
   }
-  
+
   componentWillMount() {
-    const x = this.props.geolocation.x || window.sessionStorage.getItem('vtag-geo-x')
-    const y = this.props.geolocation.y || window.sessionStorage.getItem('vtag-geo-y')
+    console.log("current: "+ this.state.x);
+    console.log("current: "+ this.state.y);
 
     this.props.dispatch(MessageActions.getMessages({
-      x: x,
-      y: y
+      x: this.state.x,
+      y: this.state.y
     }))
   }
-  
+
   handleClickPostMessage(data) {
     this.props.router.push('/postMessage')
   }
@@ -35,8 +39,7 @@ class Messages$ extends React.Component {
       <ContentPanel
         handleClickPostMessage={this.handleClickPostMessage}
         showPostMessageBtn={true}>
-        <MessageList
-          messages={this.props.messages}/>
+        <MessageList messages={this.props.messages} x={this.state.x} y={this.state.y} />
       </ContentPanel>
     )
   }
