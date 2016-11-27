@@ -6,7 +6,8 @@ var APP_DIR = path.resolve(__dirname, '../src');
 /* Modules */
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
-var autoprefixer = require('autoprefixer')
+var autoprefixer = require('autoprefixer');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
   entry: [
@@ -19,12 +20,15 @@ var config = {
   plugins: [
     new ExtractTextPlugin('style.css', { allChunks: true }),
     new webpack.NoErrorsPlugin(),
-    new webpack.optimize.UglifyJsPlugin({minimize: true}),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"',
       'global': {}, // bizarre lodash(?) webpack workaround
       'global.GENTLY': false // superagent client fix
-    })
+    }),
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+    }),
   ],
   node: {
     net: 'empty',

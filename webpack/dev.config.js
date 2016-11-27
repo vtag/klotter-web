@@ -25,6 +25,10 @@ var config = {
     new webpack.ProvidePlugin({
       'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     }),
+    new HtmlWebpackPlugin({
+      cache: true,
+      template: 'index.html',
+    }),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -70,9 +74,7 @@ var config = {
   },
   devtool: "source-map",
   devServer: {
-    historyApiFallback: {
-      index: 'index.html'
-    },
+    historyApiFallback: true,
     headers: { "Access-Control-Allow-Origin": "*" }
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
