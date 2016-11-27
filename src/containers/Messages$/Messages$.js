@@ -15,28 +15,30 @@ class Messages$ extends React.Component {
     super()
     this.handleClickPostMessage = this.handleClickPostMessage.bind(this)
   }
-  
+
   componentWillMount() {
-    const x = this.props.geolocation.x || window.sessionStorage.getItem('vtag-geo-x')
-    const y = this.props.geolocation.y || window.sessionStorage.getItem('vtag-geo-y')
+    let x = this.props.geolocation.x || parseFloat(window.sessionStorage.getItem('vtag-geo-x'));
+    let y = this.props.geolocation.y || parseFloat(window.sessionStorage.getItem('vtag-geo-y'));
 
     this.props.dispatch(MessageActions.getMessages({
       x: x,
       y: y
     }))
   }
-  
+
   handleClickPostMessage(data) {
     this.props.router.push('/postMessage')
   }
 
   render() {
+    let x = this.props.geolocation.x || parseFloat(window.sessionStorage.getItem('vtag-geo-x'));
+    let y = this.props.geolocation.y || parseFloat(window.sessionStorage.getItem('vtag-geo-y'));
+
     return (
       <ContentPanel
         handleClickPostMessage={this.handleClickPostMessage}
         showPostMessageBtn={true}>
-        <MessageList
-          messages={this.props.messages}/>
+        <MessageList messages={this.props.messages} x={x} y={y} />
       </ContentPanel>
     )
   }
