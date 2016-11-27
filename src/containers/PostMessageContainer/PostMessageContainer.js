@@ -4,13 +4,13 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router' 
 
 /* Internal Dependencies */
-import styles from './PostMessage$.scss'
+import styles from './PostMessageContainer.scss'
 import { MessageActions } from '../../actions'
 import PostMessageForm from '../../components/PostMessageForm'
 import ContentPanel from '../../components/ContentPanel'
 
 
-class PostMessage$ extends React.Component {
+class PostMessageContainer extends React.Component {
 
   constructor() {
     super()
@@ -38,7 +38,7 @@ const mapStateToProps = (state/*, props*/) => {
   }
 }
 
-const RoutedPostMessage$ = withRouter(PostMessage$)
-const ConnectedPostMessage$ = connect(mapStateToProps)(RoutedPostMessage$)
+PostMessageContainer = withRouter(PostMessageContainer)
+PostMessageContainer = connect(mapStateToProps)(PostMessageContainer)
 
-export default ConnectedPostMessage$
+export default PostMessageContainer

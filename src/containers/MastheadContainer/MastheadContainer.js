@@ -2,9 +2,9 @@
 import React from 'react'
 
 /* Internal Dependencies */
-import styles from './Masthead$.scss'
+import styles from './MastheadContainer.scss'
 
-const Masthead$ = (props) => {
+const MastheadContainer = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.geoLocation}>
@@ -21,4 +21,4 @@ const Masthead$ = (props) => {
   )
 }
 
-export default Masthead$
+export default MastheadContainer

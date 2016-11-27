@@ -4,11 +4,12 @@ import { Router, Route, Link, browserHistory, useRouterHistory, hashHistory, Ind
 import { createHashHistory } from 'history'
 
 /* Intenral Dependencies */
-import App$ from './containers/App$'
-import Welcome$ from './containers/Welcome$'
-import Messages$ from './containers/Messages$'
+import AppContainer from './containers/AppContainer'
+import WelcomeContainer from './containers/WelcomeContainer'
+import MessagesContainer from './containers/MessagesContainer'
 import MainFrame from './components/MainFrame'
-import PostMessage$ from './containers/PostMessage$'
+import PostMessageContainer from './containers/PostMessageContainer'
+import MessageContainer from './containers/MessageContainer'
 import { RouteUtils } from './utils'
 
 
@@ -27,14 +28,15 @@ const store = ReduxUtils.store()
 export default (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={App$}>
+      <Route path="/" component={AppContainer}>
         <IndexRedirect to="welcome"/>
-        <Route path="welcome" component={Welcome$}/>
+        <Route path="welcome" component={WelcomeContainer}/>
         <Route
           component={MainFrame}
           onEnter={RouteUtils.geoCheck}>
-          <Route path="messages" component={Messages$}/>
-          <Route path="postMessage" component={PostMessage$}/>
+          <Route path="messages" component={MessagesContainer}/>
+          <Route path="messages/:id" component={MessageContainer}/>
+          <Route path="postMessage" component={PostMessageContainer}/>
         </Route>
       </Route>
     </Router>

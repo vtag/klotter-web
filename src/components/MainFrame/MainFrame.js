@@ -3,17 +3,17 @@ import { connect } from 'react-redux'
 
 /**/
 import styles from './MainFrame.scss'
-import Masthead from '../../containers/Masthead$'
-import GlobalFooter from '../../containers/GlobalFooter$'
+import MastheadContainer from '../../containers/MastheadContainer'
+import GlobalFooterContainer from '../../containers/GlobalFooterContainer'
 
 const MainFrame = (props) => {
   return (
     <div className={styles.wrapper}>
-      <Masthead/>
+      <MastheadContainer/>
       <div className={styles.body}>
         {props.children}
       </div>
-      <GlobalFooter/>
+      <GlobalFooterContainer/>
     </div>
   )
 }

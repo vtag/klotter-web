@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 /**/
 import styles from './ContentPanel.scss'
-import Masthead from '../../containers/Masthead$'
 
 function renderPostMessageBtn(props) {
   if (props.showPostMessageBtn) {
