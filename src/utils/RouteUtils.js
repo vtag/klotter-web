@@ -1,11 +1,16 @@
 export default {
-  geoCheck: (replace, store) => {
-    let x = window.sessionStorage.getItem('vtag-geo-x')
-    let y = window.sessionStorage.getItem('vtag-geo-y')
+  geoCheck: (nextState, replace, callback) => {
+    let x = window.sessionStorage.getItem('klotter-geo-x')
+    let y = window.sessionStorage.getItem('klotter-geo-y')
+
+    console.log('geocheck', x, y)
 
     if (!x || !y) {
-      console.log('Geolocation check failed. Redirect to welcome page')
-      replace('welcome')
+      alert(`We didn't get your Geo-location. Did you allow the GPS ?`)
+      replace('/welcome')
+      callback()
+    } {
+      callback()
     }
   }
 }

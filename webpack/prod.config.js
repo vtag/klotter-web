@@ -1,20 +1,16 @@
-/* Path*/
+/* Path */
 var path = require('path');
-var BUILD_DIR = path.resolve(__dirname, 'build');
-var APP_DIR = path.resolve(__dirname, 'src');
+var BUILD_DIR = path.resolve(__dirname, '../build');
+var APP_DIR = path.resolve(__dirname, '../src');
 
 /* Modules */
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer')
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
   entry: [
-    'webpack-dev-server/client?http://localhost:5001',
-    'webpack/hot/only-dev-server',
-    APP_DIR + '/main.js',
-
+    APP_DIR + '/main.js'
   ],
   output: {
     path: BUILD_DIR,
@@ -22,17 +18,22 @@ var config = {
   },
   plugins: [
     new ExtractTextPlugin('style.css', { allChunks: true }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.ProvidePlugin({
-      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-    }),
-    new HtmlWebpackPlugin({
-      template: './index.html',
-      cache: true
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"',
+      'global': {}, // bizarre lodash(?) webpack workaround
+      'global.GENTLY': false // superagent client fix
     })
   ],
+  node: {
+    net: 'empty',
+    dns: 'empty',
+    fs: 'empty'
+  },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    modulesDirectories: ['node_modules']
   },
   module : {
     loaders : [
@@ -70,6 +71,10 @@ var config = {
       {
         test: /\.png$/,
         loader: 'url-loader?limit=10000&mimetype=image/png'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },
@@ -80,7 +85,8 @@ var config = {
     },
     headers: { "Access-Control-Allow-Origin": "*" }
   },
-  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
+  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+  target: 'node'
 };
 
 module.exports = config;

@@ -8,6 +8,7 @@ import styles from './MessagesContainer.scss'
 import { MessageActions } from '../../actions'
 import MessageList from '../../components/MessageList'
 import ContentPanel from '../../components/ContentPanel'
+import DSKEYS from '../../constants/DomStorageKeys'
 
 class MessagesContainer extends React.Component {
 
@@ -17,8 +18,8 @@ class MessagesContainer extends React.Component {
   }
 
   componentWillMount() {
-    let x = this.props.geolocation.x || parseFloat(window.sessionStorage.getItem('vtag-geo-x'));
-    let y = this.props.geolocation.y || parseFloat(window.sessionStorage.getItem('vtag-geo-y'));
+    let x = this.props.geolocation.x || parseFloat(window.sessionStorage.getItem(DSKEYS.X_COORD));
+    let y = this.props.geolocation.y || parseFloat(window.sessionStorage.getItem(DSKEYS.Y_COORD));
 
     this.props.dispatch(MessageActions.getMessages({
       x: x,
@@ -31,8 +32,8 @@ class MessagesContainer extends React.Component {
   }
 
   render() {
-    let x = this.props.geolocation.x || parseFloat(window.sessionStorage.getItem('vtag-geo-x'));
-    let y = this.props.geolocation.y || parseFloat(window.sessionStorage.getItem('vtag-geo-y'));
+    let x = this.props.geolocation.x || parseFloat(window.sessionStorage.getItem(DSKEYS.X_COORD));
+    let y = this.props.geolocation.y || parseFloat(window.sessionStorage.getItem(DSKEYS.Y_COORD));
 
     return (
       <ContentPanel
