@@ -4,9 +4,11 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import classNames from 'classnames'
 
+
 /* Internal Dependencies */
 import styles from './WelcomeContainer.scss'
 import { GeolocationActions } from '../../actions'
+import DSKEYS from '../../constants/DomStorageKeys'
 
 class WelcomeContainer extends React.Component {
 
@@ -21,8 +23,8 @@ class WelcomeContainer extends React.Component {
   componentWillMount() {
     this.props.dispatch(GeolocationActions.getGeolocation())
       .then((res) => {
-        window.sessionStorage.setItem('vtag-geo-x', res.x)
-        window.sessionStorage.setItem('vtag-geo-y', res.y)
+        window.sessionStorage.setItem(DSKEYS.X_COORD, res.x)
+        window.sessionStorage.setItem(DSKEYS.Y_COORD, res.y)
         this.setState({geoIsConfirmed: true})
       })
   }

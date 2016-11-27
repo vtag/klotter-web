@@ -5,7 +5,7 @@ const initialState = {
 }
 
 export default function(state = initialState, action) {
-  console.log('_ui', state, action)
+  // console.log('_ui', state, action)
 
   switch (action.type) {
     

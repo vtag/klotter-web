@@ -2,11 +2,11 @@ import AT from '../actions/ActionTypes'
 import { browserHistory } from 'react-router'
 
 const initialState = {
-  messages: new Array()
+  messages: []
 }
 
 export default function(state = initialState, action) {
-  console.log('_messages', state, action)
+  // console.log('_messages', state, action)
 
   switch (action.type) {
 
