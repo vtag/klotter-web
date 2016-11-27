@@ -11,22 +11,18 @@ import ContentPanel from '../../components/ContentPanel'
 
 class Messages$ extends React.Component {
 
-  constructor(props) {
+  constructor() {
     super()
-    this.state = {
-      x: props.geolocation.x || parseFloat(window.sessionStorage.getItem('vtag-geo-x')),
-      y: props.geolocation.y || parseFloat(window.sessionStorage.getItem('vtag-geo-y')),
-    }
     this.handleClickPostMessage = this.handleClickPostMessage.bind(this)
   }
 
   componentWillMount() {
-    console.log("current: "+ this.state.x);
-    console.log("current: "+ this.state.y);
+    let x = this.props.geolocation.x || parseFloat(window.sessionStorage.getItem('vtag-geo-x'));
+    let y = this.props.geolocation.y || parseFloat(window.sessionStorage.getItem('vtag-geo-y'));
 
     this.props.dispatch(MessageActions.getMessages({
-      x: this.state.x,
-      y: this.state.y
+      x: x,
+      y: y
     }))
   }
 
@@ -35,11 +31,14 @@ class Messages$ extends React.Component {
   }
 
   render() {
+    let x = this.props.geolocation.x || parseFloat(window.sessionStorage.getItem('vtag-geo-x'));
+    let y = this.props.geolocation.y || parseFloat(window.sessionStorage.getItem('vtag-geo-y'));
+
     return (
       <ContentPanel
         handleClickPostMessage={this.handleClickPostMessage}
         showPostMessageBtn={true}>
-        <MessageList messages={this.props.messages} x={this.state.x} y={this.state.y} />
+        <MessageList messages={this.props.messages} x={x} y={y} />
       </ContentPanel>
     )
   }

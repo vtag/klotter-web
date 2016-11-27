@@ -9,7 +9,11 @@ import Message from '../Message'
 function renderMessages(messages = [], x, y) {
   return messages.map((elem, idx) => {
     return (
-      <Message key={elem.id} message={elem} x={x} y={y} />
+      <Message
+        key={elem.id}
+        message={elem}
+        x={x}
+        y={y} />
     )
   })
 }
