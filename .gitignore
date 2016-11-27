@@ -189,3 +189,6 @@ $RECYCLE.BIN/
 
 # build
 build/
+
+# backup
+_backup/
