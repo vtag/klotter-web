@@ -15,14 +15,18 @@ function toRad(x) {
   return x * Math.PI / 180;
 }
 
-function haversineDistance(x1, y1, x2, y2) {
+function haversineDistance(lat1, lon1, lat2, lon2) {
+  function toRad(x) {
+    return x * Math.PI / 180;
+  }
+
   var R = 6371; // average earth radius in kilometers
 
-  var x1 = y2 - x2;
+  var x1 = lat2 - lat1;
   var dLat = toRad(x1);
-  var x2 = y1 - x1;
+  var x2 = lon2 - lon1;
   var dLon = toRad(x2);
-  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(toRad(x2)) * Math.cos(toRad(y2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   var d = R * c;
 
@@ -42,7 +46,7 @@ const Message = (props) => {
           some time
         </span>
         <span>
-          {haversineDistance(props.message.y, props.message.x, props.y, props.x).toFixed(0)} km away
+          {haversineDistance(props.x, props.y, props.message.x, props.message.y).toFixed(0)} km away
         </span>
       </div>
     </div>

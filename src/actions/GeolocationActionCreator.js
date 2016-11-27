@@ -8,8 +8,8 @@ export default {
 
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          const x  = position.coords.latitude;
-          const y = position.coords.longitude;
+          const x  = position.coords.longitude;
+          const y = position.coords.latitude;
           console.log('Geolocation', x, y)
           dispatch(createAction(AT.GET_GEOLOCATION, {x, y}))
 
