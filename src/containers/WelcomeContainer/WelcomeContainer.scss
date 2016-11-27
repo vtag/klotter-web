@@ -6,7 +6,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $red;
+  background: -webkit-linear-gradient(left top, $red, $purplesmooth); 
+  background: -o-linear-gradient(bottom right, $red, $purplesmooth);
+  background: -moz-linear-gradient(bottom right, $red, $purplesmooth);
+  background: linear-gradient(to bottom right, $red, $purplesmooth); /* Standard syntax (must be last) */
   color: white;
 
   .logoContainer {
