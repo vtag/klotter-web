@@ -8,6 +8,7 @@ import AppContainer from './containers/AppContainer'
 import WelcomeContainer from './containers/WelcomeContainer'
 import MessagesContainer from './containers/MessagesContainer'
 import MainFrame from './components/MainFrame'
+import WrongURL from './components/WrongURL'
 import PostMessageContainer from './containers/PostMessageContainer'
 import MessageContainer from './containers/MessageContainer'
 import { RouteUtils } from './utils'
@@ -33,11 +34,12 @@ export default (
         <Route path="welcome" component={WelcomeContainer}/>
         <Route
           component={MainFrame}
-          onEnter={RouteUtils.geoCheck}>
+          onEnter={(nextState, replace, callback) => { RouteUtils.geoCheck(nextState, replace, callback) }}>
           <Route path="messages" component={MessagesContainer}/>
           <Route path="messages/:id" component={MessageContainer}/>
           <Route path="postMessage" component={PostMessageContainer}/>
         </Route>
+        <Route path="*" component={WrongURL}/>
       </Route>
     </Router>
   </Provider>

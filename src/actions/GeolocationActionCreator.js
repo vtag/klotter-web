@@ -12,10 +12,7 @@ export default {
           const y = position.coords.latitude;
           console.log('Geolocation', x, y)
           dispatch(createAction(AT.GET_GEOLOCATION, {x, y}))
-
           resolve({x, y})
-
-          // return dispatch(createAction(AT.GET_GEOLOCATION, {x, y}))
         },
         () => {
           console.log('Geo location cannot be obtained. Error')
