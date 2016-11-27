@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import moment from 'moment';
 
 /**/
 import styles from './Message.scss'
@@ -43,7 +44,7 @@ const Message = (props) => {
       </div>
       <div className={styles.meta}>
         <span className={styles.time}>
-          some time
+          {moment(props.message.created_at).fromNow()}
         </span>
         <span>
           {haversineDistance(props.x, props.y, props.message.x, props.message.y).toFixed(0)} km away
