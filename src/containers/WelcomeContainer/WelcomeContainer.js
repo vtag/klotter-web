@@ -5,10 +5,10 @@ import { withRouter } from 'react-router'
 import classNames from 'classnames'
 
 /* Internal Dependencies */
-import styles from './Welcome$.scss'
+import styles from './WelcomeContainer.scss'
 import { GeolocationActions } from '../../actions'
 
-class Welcome$ extends React.Component {
+class WelcomeContainer extends React.Component {
 
   constructor() {
     super()
@@ -68,7 +68,7 @@ const mapStateToProps = (state/*, props*/) => {
   }
 }
 
-const RoutedWelcome$ = withRouter(Welcome$)
-const ConnectedWelcome$ = connect(mapStateToProps)(RoutedWelcome$)
+WelcomeContainer = withRouter(WelcomeContainer)
+WelcomeContainer = connect(mapStateToProps)(WelcomeContainer)
 
-export default ConnectedWelcome$
+export default WelcomeContainer

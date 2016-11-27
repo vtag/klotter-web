@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import {browserHistory, withRouter} from 'react-router'
 
 /* Internal Dependencies*/
-import styles from './GlobalFooter$.scss'
+import styles from './GlobalFooterContainer.scss'
 import { MessageActions } from '../../actions'
 
-class GlobalFooter$ extends React.Component {
+class GlobalFooterContainer extends React.Component {
 
   constructor() {
     super()
@@ -72,7 +72,7 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-const ConnectedGlobalFooter$ = connect(mapStateToProps)(GlobalFooter$)
-const RoutedGolbalFooter$ = withRouter(ConnectedGlobalFooter$)
+GlobalFooterContainer = connect(mapStateToProps)(GlobalFooterContainer)
+GlobalFooterContainer = withRouter(GlobalFooterContainer)
 
-export default RoutedGolbalFooter$
+export default GlobalFooterContainer

@@ -1,0 +1,6 @@
+{
+  "name": "MastheadContainer",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./MastheadContainer.js"
+}

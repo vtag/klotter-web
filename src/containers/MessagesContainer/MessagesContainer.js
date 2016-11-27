@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
 /* Internal Dependencies */
-import styles from './Messages$.scss'
+import styles from './MessagesContainer.scss'
 import { MessageActions } from '../../actions'
 import MessageList from '../../components/MessageList'
 import ContentPanel from '../../components/ContentPanel'
 
-class Messages$ extends React.Component {
+class MessagesContainer extends React.Component {
 
   constructor() {
     super()
@@ -55,7 +55,7 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-const RoutedMessages$ = withRouter(Messages$)
-const ConnectedMessages$ = connect(mapStateToProps)(RoutedMessages$)
+MessagesContainer = withRouter(MessagesContainer)
+MessagesContainer = connect(mapStateToProps)(MessagesContainer)
 
-export default ConnectedMessages$
+export default MessagesContainer

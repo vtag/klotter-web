@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import {browserHistory} from 'react-router'
 
 /* Internal Dependencies*/
-import styles from './App$.scss'
+import styles from './AppContainer.scss'
 import { GeolocationActions } from '../../actions'
 
-class App$ extends React.Component {
+class AppContainer extends React.Component {
 
   constructor() {
     super()
@@ -33,6 +33,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ConnectedApp$ = connect(mapStateToProps)(App$)
+AppContainer = connect(mapStateToProps)(AppContainer)
 
-export default ConnectedApp$
+export default AppContainer
