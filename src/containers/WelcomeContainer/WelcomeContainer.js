@@ -7,7 +7,6 @@ import logo from './logo_front.png'
 
 /* Internal Dependencies */
 import styles from './WelcomeContainer.scss'
-
 import { GeolocationActions } from '../../actions'
 import DSKEYS from '../../constants/DomStorageKeys'
 

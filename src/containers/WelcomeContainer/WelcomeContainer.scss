@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, $red, $purplesmooth);
+  background: linear-gradient(to bottom right, $red, $purpleSmooth);
   color: white;
 
   .logoContainer {
@@ -33,7 +33,7 @@
     background-color: white;
     width: 238px;
     height: 55px;
-    margin: 110px;
+    margin-left: 83px;
 
     .button {
       background-color: white;
