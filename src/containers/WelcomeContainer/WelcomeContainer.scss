@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, $red, $purplesmooth); /* Standard syntax (must be last) */
+  background: linear-gradient(to bottom right, $red, $purplesmooth);
   color: white;
 
   .logoContainer {
@@ -60,8 +60,4 @@
       font-size: 20px;
     }
   }
-
-
-
-
 }

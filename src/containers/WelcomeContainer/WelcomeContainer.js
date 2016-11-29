@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import classNames from 'classnames'
 import logo from './logo_front.png'
-import loc_mark from './icon_location_red.png'
-
 
 /* Internal Dependencies */
 import styles from './WelcomeContainer.scss'
