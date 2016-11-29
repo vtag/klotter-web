@@ -27,7 +27,7 @@ var config = {
     }),
     new HtmlWebpackPlugin({
       cache: true,
-      template: 'index.html',
+      template: './template/index.html'
     }),
   ],
   resolve: {

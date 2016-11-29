@@ -22,12 +22,12 @@ var config = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"',
-      'global': {}, // bizarre lodash(?) webpack workaround
-      'global.GENTLY': false // superagent client fix
+      'global': {},
+      'global.GENTLY': false
     }),
     new webpack.optimize.UglifyJsPlugin({minimize: true}),
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: './template/index.html'
     }),
   ],
   node: {
@@ -94,5 +94,3 @@ var config = {
 };
 
 module.exports = config;
-
-// historyApiFallback: true,
