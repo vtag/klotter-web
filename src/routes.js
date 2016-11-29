@@ -11,6 +11,7 @@ import MainFrame from './components/MainFrame'
 import WrongURL from './components/WrongURL'
 import PostMessageContainer from './containers/PostMessageContainer'
 import MessageContainer from './containers/MessageContainer'
+import MapContainer from './containers/MapContainer'
 import { RouteUtils } from './utils'
 
 
@@ -38,6 +39,7 @@ export default (
           <Route path="messages" component={MessagesContainer}/>
           <Route path="messages/:id" component={MessageContainer}/>
           <Route path="postMessage" component={PostMessageContainer}/>
+          <Route path="map" component={MapContainer}/>
         </Route>
         <Route path="*" component={WrongURL}/>
       </Route>
