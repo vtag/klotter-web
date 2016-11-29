@@ -1,0 +1,16 @@
+@import '../../../styles/color.scss';
+
+.wrapper {
+
+  height: calc(100% - 120px);
+  padding: 10px;
+
+  .mapWrapper {
+    height:500px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+}
+
+
+
