@@ -4,9 +4,14 @@ import AT from './ActionTypes'
 
 export default {
   getMessages: (arg) => (dispatch, getState) => {
-    return MessageApi.requestGetMessages(arg.x, arg.y)
-      .then(res => dispatch(createAction(AT.GET_MESSAGES, res))
-    )
+
+    return new Promise((resolve, reject)=> {
+      MessageApi.requestGetMessages(arg.x, arg.y)
+        .then(res => {
+          dispatch(createAction(AT.GET_MESSAGES, res))
+          resolve(res)
+        })
+    })
   },
 
   postMessage: (arg) => (dispatch, getState) => {
