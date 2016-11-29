@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import classNames from 'classnames'
-
+import logo from './logo_front.png'
 
 /* Internal Dependencies */
 import styles from './WelcomeContainer.scss'
@@ -41,11 +41,11 @@ class WelcomeContainer extends React.Component {
         <div className={styles.container}>
           <div className={styles.logoContainer}>
             <p className={styles.logo}>
-              V tag
+              <img src={logo} />
             </p>
             <p className={styles.subtitle}>
-              <i className="fa fa-dot-circle-o" aria-hidden="true"/>
-              <span>tag your world</span>
+              <i className="fa fa-map-marker" aria-hidden="true"/>
+              <span>Tag your world</span>
             </p>
           </div>
           <div className={styles.btnContainer}>
