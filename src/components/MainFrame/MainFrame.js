@@ -1,7 +1,8 @@
+/* Externals */
 import React from 'react'
 import { connect } from 'react-redux'
 
-/**/
+/* Internals */
 import styles from './MainFrame.scss'
 import MastheadContainer from '../../containers/MastheadContainer'
 import GlobalFooterContainer from '../../containers/GlobalFooterContainer'

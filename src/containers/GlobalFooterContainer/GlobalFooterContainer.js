@@ -1,11 +1,13 @@
 /* External Dependencies */
 import React from 'react'
 import { connect } from 'react-redux'
+import classNames from 'classnames'
 import {browserHistory, withRouter} from 'react-router'
 
 /* Internal Dependencies*/
 import styles from './GlobalFooterContainer.scss'
 import { MessageActions } from '../../actions'
+import DefaultFooter from '../../components/GlobalFooter/DefaultFooter'
 
 class GlobalFooterContainer extends React.Component {
 
@@ -29,10 +31,23 @@ class GlobalFooterContainer extends React.Component {
     if (pathname === 'postMessage') {
       return this.willConvertToPostMsgFooter()
     } else {
-      return this.willConvertToTwo()
+      return this.willConvertToDefault(pathname)
     }
   }
-                                                                
+
+  willConvertToMapFooter() {
+    return (
+      <div className={styles.wrapper}>
+        <button
+          className={styles.postBtn}
+          type="button"
+          onClick={this.handleClickPostMsg}>
+          Post Your Message
+        </button>
+      </div>
+    )
+  }
+
   willConvertToPostMsgFooter() {
     return (
       <div className={styles.wrapper}>
@@ -46,16 +61,11 @@ class GlobalFooterContainer extends React.Component {
     )
   }
   
-  willConvertToTwo() {
+  willConvertToDefault(pathname) {
     return (
-      <div className={styles.wrapper}>
-        <div className={styles.leftBtn}>
-          left
-        </div>
-        <div className={styles.rightBtn}>
-          right
-        </div>
-      </div>
+      <DefaultFooter
+        highlighted={pathname}
+      />
     )
   }
   
