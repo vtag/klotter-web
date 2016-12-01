@@ -18,7 +18,7 @@ require('whatwg-fetch')
 require('./styles/normalize.css')
 require('./styles/reset.scss')
 require('./styles/global.scss')
-require('./styles/font-awesome.css')
+// require('./styles/font-awesome.css')
 
 ReactDom.render(
   routes,
